@@ -1,0 +1,12 @@
+<!-- app/views/layouts/application.html.erb -->
+
+<%= link_to "Add new task", new_task_path %>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+    <input id="<%= "checkbox_#{task.id}" %>" type="checkbox" name="task" value="<%= task.id %>" <%= task.complete ? "checked=\"checked\"" : ""%>>
+    <%= link_to task.title, task_path(task.id) %>
+    </li>
+  <% end %>
+  </ul>
